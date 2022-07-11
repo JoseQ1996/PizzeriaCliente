@@ -1,0 +1,26 @@
+<!-- <ol>
+    <li *ngFor="let producto of productos">{{producto|json}}</li>
+</ol> -->
+<select *ngIf="categorias" (change)="filtrar($event)">
+    <option value="">Todas las categorias</option>
+    <option *ngFor="let categoria of categorias" value="{{categoria.codigoCategoria}}">
+        {{categoria.nombre}}
+    </option>
+</select>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let producto of productos">
+        <div class="card">
+            <img src="{{producto.urlimage}}" class="card-img-top" alt="{{producto.nombre}}" width="256px"
+                height="256px">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-text">
+                    <b>Descripcion:</b>
+                    {{producto.descripcion}}
+                    <br>
+                    <b>Precio:</b> ${{producto.precio}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
