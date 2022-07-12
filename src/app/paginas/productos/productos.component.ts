@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { CarritoModalComponent } from 'src/app/componentes/carrito-modal/carrito-modal.component';
 import { CategoriasService } from 'src/app/servicios/categorias.service';
 import { ProductosService } from 'src/app/servicios/productos.service';
 
@@ -15,7 +17,7 @@ export class ProductosComponent implements OnInit {
   public categorias: any[] = [];
   private sucursal: string = '';
 
-  constructor(private route: ActivatedRoute, private ps: ProductosService, private cs: CategoriasService) { }
+  constructor(private route: ActivatedRoute, private ps: ProductosService, private cs: CategoriasService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.sucursal = this.route.snapshot.paramMap.get('nombre') || '';
@@ -51,6 +53,15 @@ export class ProductosComponent implements OnInit {
       });
       console.log(this.productos);
     }
+  }
+
+  public abrirModal(producto: any) {
+    const dialogRef = this.dialog.open(CarritoModalComponent);
+    dialogRef.componentInstance.producto = producto;
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
