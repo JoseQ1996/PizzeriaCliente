@@ -5,6 +5,7 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { NoEcontradoComponent } from './paginas/no-econtrado/no-econtrado.component';
 import { ProductosComponent } from './paginas/productos/productos.component';
 import { SucursalesComponent } from './paginas/sucursales/sucursales.component';
+import { VerCarritoComponent } from './paginas/ver-carrito/ver-carrito.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'acerca',
     component: AcercaComponent
+  },
+  {
+    path: 'carrito',
+    component: VerCarritoComponent
   },
   {
     path: '404',

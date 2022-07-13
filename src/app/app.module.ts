@@ -17,6 +17,8 @@ import { SucursalesComponent } from './paginas/sucursales/sucursales.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarritoModalComponent } from './componentes/carrito-modal/carrito-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VerCarritoComponent } from './paginas/ver-carrito/ver-carrito.component';
+import { EditarCarritoComponent } from './componentes/editar-carrito/editar-carrito.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NoEcontradoComponent,
     FooterComponent,
     SucursalesComponent,
-    CarritoModalComponent
+    CarritoModalComponent,
+    VerCarritoComponent,
+    EditarCarritoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
