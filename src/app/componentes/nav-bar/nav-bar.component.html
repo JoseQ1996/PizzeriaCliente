@@ -16,28 +16,39 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLinkActive]="['active']" routerLink="sucursales">Productos</a>
                 </li>
-
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Cuenca</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="#">Guayaquil</a></li>
-                    </ul>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" [routerLinkActive]="['active']" routerLink="acerca">Acerca de</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <div class="d-inline d-flex">
+                <!-- <button class="btn signup-button" [routerLink]="['/user/signup']">{{'btn_signup' |
+                    translate}}</button> -->
+                <button *ngIf="!sesionActiva" class="btn btn-primary" (click)="login()">Iniciar sesion</button>
+                &nbsp;
+                <button *ngIf="!sesionActiva" class="btn btn-secondary" (click)="register()">Registrarse</button>
+            </div>
+            <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
-            </form>
+            </form> -->
+            &nbsp;
+            <div *ngIf="sesionActiva" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" (click)="perfil()">Perfil</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" routerLink="tarjetas">Tarjetas</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" routerLink="pedidos">Pedidos</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" (click)="logout()">Cerrar sesion</a></li>
+                </ul>
+            </div>
             &nbsp;
             <a class="btn btn-success" routerLink="/carrito">
                 <i class="fas fa-shopping-cart"></i>
