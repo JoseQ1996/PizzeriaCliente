@@ -17,7 +17,8 @@ export class ProductosComponent implements OnInit {
   public categorias: any[] = [];
   private sucursal: string = '';
 
-  constructor(private route: ActivatedRoute, private ps: ProductosService, private cs: CategoriasService, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private ps: ProductosService,
+     private cs: CategoriasService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.sucursal = this.route.snapshot.paramMap.get('nombre') || '';
