@@ -19,4 +19,13 @@ export class PedidosService {
       cedulaUsuario: cedulaUsuario
     });
   }
+  
+  public listarPedido(codigo: number) {
+    return this.http.get(`${this.url}/listar/${codigo}`);
+  }
+
+  public anularPedido(codigo: number) {
+    return this.http.delete(`${this.url}/eliminar/${codigo}`);
+  }
+
 }

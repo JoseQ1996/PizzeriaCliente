@@ -1,11 +1,14 @@
 <div class="text-center">
-    <select *ngIf="sucursales" [(ngModel)]="sucur">
+
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" *ngIf="sucursales"
+        [(ngModel)]="sucur">
         <option value="">Todas las sucursales</option>
         <option *ngFor="let sucursal of sucursales" value="{{sucursal}}">
             {{sucursal}}
         </option>
         <hr>
     </select>
+
     <br><br>
 </div>
 
@@ -43,4 +46,5 @@
     </tbody>
 </table>
 
-<button *ngIf="sesionActiva && listaCarrito.length > 0" class="btn-flotante" (click)="hacerPedido()">Hacer pedido</button>
+<button *ngIf="sesionActiva && listaCarrito.length > 0" class="btn-flotante" (click)="hacerPedido()">Hacer
+    pedido</button>

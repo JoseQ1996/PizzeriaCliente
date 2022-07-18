@@ -37,7 +37,8 @@
 <br>
 
 <div class="text-center">
-    <select *ngIf="categorias" (change)="filtrar($event)">
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" *ngIf="categorias"
+        (change)="filtrar($event)">
         <option value="">Todas las categorias</option>
         <option *ngFor="let categoria of categorias" value="{{categoria.codigoCategoria}}">
             {{categoria.nombre}}
@@ -46,7 +47,8 @@
     </select>
     <br><br>
 </div>
-<div class="row row-cols-1 row-cols-md-3 g-4" >
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let producto of productos">
         <div class="card">
             <img src="{{producto.urlimage}}" class="card-img-top" alt="{{producto.nombre}}" width="256px"

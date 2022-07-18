@@ -71,6 +71,7 @@ export class MapaComponent implements OnInit {
           console.log(res);
           this.dialogRef.close();
           Swal.fire('Pedido completado', 'Se acaba de registrar su pedido', 'success');
+          location.href = '/carrito';
         });
     } else {
       Swal.fire('No hay usuario', 'Debe seleccionar un usuario para facturacion', 'error');
