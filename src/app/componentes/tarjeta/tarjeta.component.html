@@ -15,13 +15,13 @@
                 <label for="txtNombres">Nombres</label>
             </div>
             <div class="form-floating mt-2">
-                <input type="number" class="form-control" id="txtNumero" placeholder="4242 4242 4242 4242"
+                <input type="text" class="form-control" id="txtNumero" placeholder="4242 4242 4242 4242"
                     formControlName="numero" [class.is-invalid]="isInValid('numero')"
                     [class.is-valid]="isValid('numero')">
                 <label for="txtNumero">Numero</label>
             </div>
             <div class="form-floating mt-2">
-                <input type="number" class="form-control" id="txtCodigo" placeholder="123" formControlName="codigo"
+                <input type="text" class="form-control" id="txtCodigo" placeholder="123" formControlName="codigo"
                     [class.is-invalid]="isInValid('codigo')" [class.is-valid]="isValid('codigo')">
                 <label for="txtCodigo">Codigo</label>
             </div>

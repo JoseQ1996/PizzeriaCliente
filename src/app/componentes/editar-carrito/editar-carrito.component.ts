@@ -1,6 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AgregarCarritoService } from 'src/app/servicios/agregar-carrito.service';
+import Swal from 'sweetalert2';
 import { CarritoModalComponent } from '../carrito-modal/carrito-modal.component';
 
 @Component({
@@ -28,12 +29,20 @@ export class EditarCarritoComponent implements OnInit {
       .subscribe({
         next: res => {
           console.log(res);
-          alert('Producto editado crrectamente');
+          Swal.fire(
+            'Producto editado',
+            `Producto actualizado`,
+            'success'
+          );
           this.dialogRef.close();
         },
         error: e => {
           console.log(e);
-          alert('Producto editado crrectamente');
+          Swal.fire(
+            'Producto editado',
+            `Producto actualizado`,
+            'success'
+          );
           this.dialogRef.close();
         }
       });

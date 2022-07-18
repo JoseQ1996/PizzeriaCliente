@@ -4,6 +4,7 @@ import { CarritoModalComponent } from 'src/app/componentes/carrito-modal/carrito
 import { EditarCarritoComponent } from 'src/app/componentes/editar-carrito/editar-carrito.component';
 import { AgregarCarritoService } from 'src/app/servicios/agregar-carrito.service';
 import { ListarCarroService } from 'src/app/servicios/listar-carro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ver-carrito',
@@ -33,22 +34,42 @@ export class VerCarritoComponent implements OnInit {
   }
 
   public eliminar(nombre: string) {
-    const resutl = confirm('Dese retirar el producto del carrito');
-    if (resutl) {
-      this.acs.eliminarCarrito(nombre)
-        .subscribe({
-          next: res => {
-            console.log(res);
-            location.href='/carrito'
-            alert('Producto elimin');
-          },
-          error: e => {
-            console.log(e);
-            location.href='/carrito'
-            alert('Producto elimin'); 
-          }
-        });
-    }
+    Swal.fire({
+      title: '¿Esta seguro?',
+      text: `Estas a punto de eliminar el producto del carrito`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.acs.eliminarCarrito(nombre)
+          .subscribe({
+            next: res => {
+              console.log(res);
+              location.href = '/carrito'
+              Swal.fire(
+                '¡Eliminado!',
+                `Producto eliminado`,
+                'success'
+              );
+            },
+            error: e => {
+              console.log(e);
+              location.href = '/carrito'
+              Swal.fire(
+                '¡Eliminado!',
+                `Producto eliminado`,
+                'success'
+              );
+            }
+          });
+      }
+    });
+
+
   }
 
 }

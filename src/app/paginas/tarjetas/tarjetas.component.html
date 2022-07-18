@@ -19,7 +19,7 @@
             <td>{{tarjeta.numeroTarjeta|ocultarTarjeta}}</td>
             <td>{{tarjeta.fechaCa | slice:0:7}}</td>
             <td>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger" (click)="borrar(tarjeta.idTarjeta)">Eliminar</button>
             </td>
         </tr>
 
