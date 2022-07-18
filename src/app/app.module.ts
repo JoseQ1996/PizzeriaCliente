@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,13 @@ import { CarritoModalComponent } from './componentes/carrito-modal/carrito-modal
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerCarritoComponent } from './paginas/ver-carrito/ver-carrito.component';
 import { EditarCarritoComponent } from './componentes/editar-carrito/editar-carrito.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { TarjetasComponent } from './paginas/tarjetas/tarjetas.component';
+import { OcultarTarjetaPipe } from './pipes/ocultar-tarjeta.pipe';
+import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { PedidosComponent } from './paginas/pedidos/pedidos.component';
 
 @NgModule({
   imports: [
@@ -28,6 +36,7 @@ import { EditarCarritoComponent } from './componentes/editar-carrito/editar-carr
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatButtonModule,
     BrowserAnimationsModule,
   ],
   declarations: [
@@ -41,7 +50,14 @@ import { EditarCarritoComponent } from './componentes/editar-carrito/editar-carr
     SucursalesComponent,
     CarritoModalComponent,
     VerCarritoComponent,
-    EditarCarritoComponent
+    EditarCarritoComponent,
+    LoginComponent,
+    RegistroComponent,
+    TarjetasComponent,
+    OcultarTarjetaPipe,
+    TarjetaComponent,
+    PerfilComponent,
+    PedidosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
