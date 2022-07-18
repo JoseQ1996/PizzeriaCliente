@@ -27,6 +27,7 @@ import { OcultarTarjetaPipe } from './pipes/ocultar-tarjeta.pipe';
 import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { PedidosComponent } from './paginas/pedidos/pedidos.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { PedidosComponent } from './paginas/pedidos/pedidos.component';
     OcultarTarjetaPipe,
     TarjetaComponent,
     PerfilComponent,
-    PedidosComponent
+    PedidosComponent,
+    MapaComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
