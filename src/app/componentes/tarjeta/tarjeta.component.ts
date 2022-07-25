@@ -59,7 +59,7 @@ export class TarjetaComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.loading = false;
-        Swal.fire('Tarjeta añadida', 'Terjeta registrada con exito', 'success');
+        Swal.fire('Tarjeta añadida', 'Tarjeta registrada con exito', 'success');
         this.ss.recuperarUsuario(cc);
         setTimeout(() => {
           location.href = '/tarjetas';

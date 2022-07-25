@@ -59,6 +59,7 @@ export class MapaComponent implements OnInit {
     this.ss.buscarPorCedula(cedula)
       .subscribe(res => {
         this.usuario = res;
+        this.cedula = cedula;
         console.info(this.usuario);
       });
   }
@@ -66,6 +67,7 @@ export class MapaComponent implements OnInit {
   public hacerPedido() {
     if (this.usuario) {
       const user = this.ses.obtenerSesion();
+      console.log(this.sucursal, this.lat, this.lng, user['correo'], this.cedula);
       this.ps.hacerPedido(this.sucursal, this.lat, this.lng, user['correo'], this.cedula)
         .subscribe(res => {
           console.log(res);
