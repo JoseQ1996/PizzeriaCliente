@@ -1,0 +1,14 @@
+node{
+    stage('Checkout SCM'){
+        git branch: 'master', url: 'https://github.com/JoseQ1996/PizzeriaCliente.git'
+    }
+    stage('Install node modules'){
+        sh "npm install"
+    }
+    stage('Build'){
+        sh "ng build --configuration production"
+    }
+    stage('Deploy'){
+        sh 'pm2 restart all'
+    }
+}
