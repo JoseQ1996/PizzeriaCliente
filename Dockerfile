@@ -7,5 +7,5 @@ RUN npm ci && npm run build
 
 FROM nginx:alpine
 COPY --from=pizzeriaApp /app/dist/* /usr/share/nginx/html
-EXPOSE 8083
+EXPOSE 80
  
