@@ -2,9 +2,7 @@ node{
     stage('Checkout SCM'){
         git branch: 'master', url: 'https://github.com/JoseQ1996/PizzeriaCliente.git'
     }
-    tools{
-        node.js '16.16.0'
-    }
+    
     stage('Install node modules'){
         sh "npm install"
     }
