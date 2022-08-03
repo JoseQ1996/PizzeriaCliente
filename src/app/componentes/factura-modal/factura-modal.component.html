@@ -1,0 +1,93 @@
+<button type="button" class="close" aria-label="Close" mat-button mat-dialog-close>
+    <span aria-hidden="true">&times;</span>
+</button>
+<div class="text-center">
+    <p><b>FACTURA</b></p>
+</div>
+<div class="modal-body">
+    <div class="map-container">
+        <div class="map-frame">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="text-center">
+        <!-- <pre>
+            {{factura | json}}
+        </pre> -->
+
+        <div class="row" *ngIf="factura && usuario">
+            <div class="col text-left">
+                <tr>
+                    <td><b>Nro Factura:</b></td>
+                    <td>{{factura['codigoFactura']}}</td>
+                </tr>
+                <tr>
+                    <td><b>Cedula:</b></td>
+                    <td>{{usuario['cedula']}}</td>
+                </tr>
+                <tr>
+                    <td><b>Nombre:</b></td>
+                    <td>{{usuario['nombre']}}</td>
+                </tr>
+                <tr>
+                    <td><b>Apellido:</b></td>
+                    <td>{{usuario['apellido']}}</td>
+                </tr>
+            </div>
+            <div class="col text-right">
+                <tr>
+                    <td><b>Fecha:</b></td>
+                    <td>{{factura['fechaFactura'] | slice:0:10}}</td>
+                </tr>
+
+            </div>
+        </div>
+
+        <div *ngIf="factura && detalles.length > 0">
+            <table class="table mb-2 mt-2">
+                <thead>
+                    <tr>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let detalle of detalles">
+                        <td>{{detalle['descripcion']}}</td>
+                        <td>$ {{detalle['precioUnitario']}}</td>
+                        <td>{{detalle['cantidad']}}</td>
+                        <td>{{detalle['precioTotal']}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col text-right">
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <th> </th>
+                        <td>
+                    <tr>
+                        <td><b>Subtotal:</b></td>
+                        <td>{{factura['subtotal'] | number:'1.2-2'}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>IVA:</b></td>
+                        <td>{{factura['iva'] | number:'1.2-2'}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Total:</b></td>
+                        <td>{{factura['total'] | number:'1.2-2'}}</td>
+                    </tr>
+                    </td>
+                    </tr>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

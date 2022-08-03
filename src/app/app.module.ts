@@ -28,6 +28,7 @@ import { TarjetaComponent } from './componentes/tarjeta/tarjeta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { PedidosComponent } from './paginas/pedidos/pedidos.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
+import { FacturaModalComponent } from './componentes/factura-modal/factura-modal.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { MapaComponent } from './componentes/mapa/mapa.component';
     TarjetaComponent,
     PerfilComponent,
     PedidosComponent,
-    MapaComponent
+    MapaComponent,
+    FacturaModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,12 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 import { icon, Map, Marker, tileLayer } from 'leaflet';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { PedidosService } from 'src/app/servicios/pedidos.service';
 import { SesionService } from 'src/app/servicios/sesion.service';
+import { FacturaModalComponent } from '../factura-modal/factura-modal.component';
 
 @Component({
   selector: 'app-mapa',
@@ -25,6 +26,7 @@ export class MapaComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<MapaComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private ss: UsuarioService,
     private ps: PedidosService,
@@ -70,14 +72,29 @@ export class MapaComponent implements OnInit {
       console.log(this.sucursal, this.lat, this.lng, user['correo'], this.cedula);
       this.ps.hacerPedido(this.sucursal, this.lat, this.lng, user['correo'], this.cedula)
         .subscribe(res => {
-          console.log(res);
+          console.info('Factura:', res);
           this.dialogRef.close();
-          Swal.fire('Pedido completado', 'Se acaba de registrar su pedido', 'success');
-          location.href = '/carrito';
+          Swal.fire('Pedido completado', 'Se acaba de registrar su pedido', 'success')
+            .then(result => {
+              if (result.isConfirmed) {
+                this.verFactura(res);
+              }
+            });
+          // location.href = '/carrito';
         });
     } else {
       Swal.fire('No hay usuario', 'Debe seleccionar un usuario para facturacion', 'error');
     }
+  }
+
+  public verFactura(data: any) {
+    const dialogRef = this.dialog.open(FacturaModalComponent, {
+      width: '600px',
+      height: '570px',
+      panelClass: 'my-dialog',
+      disableClose: false
+    });
+    dialogRef.componentInstance.factura = data;
   }
 
 }
