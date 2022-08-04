@@ -7,7 +7,7 @@ app.use(express.static("dist/proyecto-pizzeria"))
 app.get("*",(request,response)=>{
     response.sendFile(path.resolve(__dirname,"dist/proyecto-pizzeria","index.html"))
 })
-app.listen(3001,()=> {
+app.listen(4200,()=> {
     console.log("Servidor ejecutandose")
 })
 
