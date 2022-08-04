@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  service_url: '172.28.80.1:8080'
+
+  service_url: 'http://172.24.128.1:8888/ServiciosWebPizzeria-0.0.1-SNAPSHOT'
+
 };
 
 /*
